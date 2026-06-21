@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franklyn | Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,6 +21,10 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <button id="theme-toggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+            </button>
         </nav>
     </header>
 
@@ -37,6 +43,7 @@
             </p>
 
             <div class="hero-buttons">
+                <a href="Files/Franklyn_Resume.pdf" class="btn resume-btn" download>Download Resume</a>
                 <a href="#projects" class="btn primary">View Projects</a>
                 <a href="#contact" class="btn secondary">Contact Me</a>
             </div>
@@ -52,9 +59,19 @@
 
         <div class="card">
             <p>
-                I'm Franklyn, a student and aspiring frontend developer.
-                I enjoy transforming ideas into elegant digital experiences
-                through HTML, CSS and modern web technologies.
+                Hello, I'm Franklyn, a Front-End Web Developer with a passion for building responsive, accessible, and engaging web experiences. I specialize in HTML, CSS, JavaScript, Git, and GitHub, and I enjoy turning concepts into polished websites that are both functional and visually appealing.
+            </p>
+      
+            <br>
+
+            <p>
+                My approach to development combines attention to detail, clean code practices, and a commitment to continuous improvement. Whether I'm creating a landing page, a dashboard interface, or a personal portfolio, I aim to deliver solutions that are intuitive, efficient, and user-focused.
+            </p>
+                
+            <br>
+
+            <p>
+                Beyond coding, I enjoy learning new technologies, refining my skills, and taking on projects that challenge me to grow as a developer.
             </p>
         </div>
     </section>
@@ -136,5 +153,15 @@
         <p>Designed & Built by Franklyn © 2026</p>
     </footer>
     
+    <script>
+
+    const button = document.getElementById("theme-toggle");
+
+    button.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+    });
+
+    </script>
+
 </body>
 </html>

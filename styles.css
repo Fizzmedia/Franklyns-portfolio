@@ -58,6 +58,7 @@ body{
 
 .nav-links{
     display:flex;
+    align-items: center;
     list-style:none;
     gap:30px;
 }
@@ -101,7 +102,8 @@ body{
 }
 
 .hero h1 span{
-    color:#38bdf8;
+    color:#ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
 .hero-text{
@@ -341,4 +343,54 @@ footer{
     .hero-image img{
         width: 200px;
     }
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #ffffff;
+    color: #0099ff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.resume-btn:hover {
+    transform: translateY(-3px);
+}
+
+.theme-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.2);
+}
+
+.dark-mode {
+    background: #111;
+    color: white;
+}
+
+.dark-mode .card,
+.dark-mode .project-card {
+    background: #222;
 }
