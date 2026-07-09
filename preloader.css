@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-logo {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: reveal 0.7s ease forwards 0.15s;
+}
+
+.preloader-logo .dev { color: #f2f2f2; }
+.preloader-logo .frank { color: #8cc63f; }
+
+.preloader-tagline {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(0.7rem, 1.6vw, 0.95rem);
+  font-weight: 300;
+  letter-spacing: 6px;
+  color: #e8e8e8;
+  opacity: 0;
+  animation: reveal 0.7s ease forwards 0.5s;
+}
+
+.preloader-tagline .line {
+  width: 32px;
+  height: 1px;
+  background: #8cc63f;
+}
+
+.preloader-bar {
+  margin-top: 40px;
+  width: min(220px, 40vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #8cc63f;
+  border-radius: 2px;
+  animation: fillBar var(--preloader-duration, 2.5s) ease forwards;
+}
+
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fillBar {
+  to { width: 100%; }
+}
