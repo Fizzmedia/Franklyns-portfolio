@@ -19,14 +19,28 @@
   pointer-events: none;
 }
 
+/*
+  IMPORTANT: .preloader-logo, .preloader-tagline and .preloader-bar-fill
+  are declared with their FINAL/visible values as the base (resting)
+  state. The @keyframes below only describe the "from" (entrance) state,
+  applied via animation-fill-mode: backwards. This means: if animations
+  ever get disabled -- e.g. by styles.css's
+  `@media (prefers-reduced-motion: reduce) { *:not(.ticker-track) {
+  animation: none !important } }` rule, which forces animation-name back
+  to "none" -- these elements simply show at their resting, fully
+  visible state instead of getting stuck invisible at opacity: 0.
+  This is what caused the preloader to appear blank on devices/browsers
+  with "Reduce motion" turned on.
+*/
+
 .preloader-logo {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 1px;
   display: flex;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: reveal 0.7s ease forwards 0.15s;
+  opacity: 1;
+  transform: translateY(0);
+  animation: reveal-logo 0.7s ease 0.15s backwards;
 }
 
 .preloader-logo .dev { color: #f2f2f2; }
@@ -41,8 +55,8 @@
   font-weight: 300;
   letter-spacing: 6px;
   color: #e8e8e8;
-  opacity: 0;
-  animation: reveal 0.7s ease forwards 0.5s;
+  opacity: 1;
+  animation: reveal-tagline 0.7s ease 0.5s backwards;
 }
 
 .preloader-tagline .line {
@@ -62,16 +76,20 @@
 
 .preloader-bar-fill {
   height: 100%;
-  width: 0%;
+  width: 100%;
   background: #8cc63f;
   border-radius: 2px;
-  animation: fillBar var(--preloader-duration, 2.5s) ease forwards;
+  animation: fillBar var(--preloader-duration, 2.5s) ease backwards;
 }
 
-@keyframes reveal {
-  to { opacity: 1; transform: translateY(0); }
+@keyframes reveal-logo {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@keyframes reveal-tagline {
+  from { opacity: 0; }
 }
 
 @keyframes fillBar {
-  to { width: 100%; }
+  from { width: 0%; }
 }
