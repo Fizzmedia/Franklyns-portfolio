@@ -1,4 +1,3 @@
-// ---- Data ----
 const RATE_TIERS = [
   {
     name: "Light Jet",
@@ -51,12 +50,10 @@ const FAQS = [
   { q: "Can I book a one-way flight to Lagos or Abuja?", a: "Yes, one-way, round-trip, and multi-leg itineraries are all available at the same published hourly rate." },
 ];
 
-// ---- State ----
 let tierIndex = 1;
 let hours = 3;
 let openFaqIndex = 0;
 
-// ---- Render: rate tier cards ----
 function renderTierCards() {
   const container = document.getElementById("tier-cards");
   container.innerHTML = RATE_TIERS.map((tier, i) => `
@@ -88,7 +85,6 @@ function renderTierCards() {
   });
 }
 
-// ---- Render: benefits grid ----
 function renderBenefits() {
   const container = document.getElementById("benefits-grid");
   container.innerHTML = BENEFITS.map((b, i) => `
@@ -100,7 +96,6 @@ function renderBenefits() {
   `).join("");
 }
 
-// ---- Render: FAQ list ----
 function renderFaq() {
   const container = document.getElementById("faq-list");
   container.innerHTML = FAQS.map((faq, i) => `
@@ -123,7 +118,6 @@ function renderFaq() {
   });
 }
 
-// ---- Update calculator + tier buttons + tier cards active state ----
 function updateAll() {
   const activeTier = RATE_TIERS[tierIndex];
   const total = activeTier.price * hours;
@@ -148,7 +142,6 @@ function updateAll() {
   slider.style.setProperty("--fill", `${((hours - 1) / 11) * 100}%`);
 }
 
-// ---- Counter animation (IntersectionObserver) ----
 function initCounters() {
   const counters = document.querySelectorAll(".counter");
   const observer = new IntersectionObserver((entries) => {
@@ -172,7 +165,6 @@ function initCounters() {
   counters.forEach((el) => observer.observe(el));
 }
 
-// ---- Nav scroll background + scroll-spy ----
 function initNav() {
   const nav = document.getElementById("nav");
   window.addEventListener("scroll", () => {
@@ -193,7 +185,6 @@ function initNav() {
   sections.forEach((s) => observer.observe(s));
 }
 
-// ---- Mobile menu toggle ----
 function initMobileMenu() {
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
@@ -217,7 +208,6 @@ function initMobileMenu() {
   });
 }
 
-// ---- Hero mouse spotlight ----
 function initSpotlight() {
   const hero = document.getElementById("start");
   const spotlight = document.getElementById("spotlight");
@@ -229,7 +219,6 @@ function initSpotlight() {
   });
 }
 
-// ---- Rates calculator controls ----
 function initCalculator() {
   document.querySelectorAll(".tier-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -244,12 +233,10 @@ function initCalculator() {
   });
 }
 
-// ---- Footer year ----
 function setYear() {
   document.getElementById("year").textContent = new Date().getFullYear();
 }
 
-// ---- Init ----
 document.addEventListener("DOMContentLoaded", () => {
   renderTierCards();
   renderBenefits();
