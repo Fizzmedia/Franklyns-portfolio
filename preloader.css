@@ -19,20 +19,6 @@
   pointer-events: none;
 }
 
-/*
-  IMPORTANT: .preloader-logo, .preloader-tagline and .preloader-bar-fill
-  are declared with their FINAL/visible values as the base (resting)
-  state. The @keyframes below only describe the "from" (entrance) state,
-  applied via animation-fill-mode: backwards. This means: if animations
-  ever get disabled -- e.g. by styles.css's
-  `@media (prefers-reduced-motion: reduce) { *:not(.ticker-track) {
-  animation: none !important } }` rule, which forces animation-name back
-  to "none" -- these elements simply show at their resting, fully
-  visible state instead of getting stuck invisible at opacity: 0.
-  This is what caused the preloader to appear blank on devices/browsers
-  with "Reduce motion" turned on.
-*/
-
 .preloader-logo {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 700;
